@@ -1,6 +1,6 @@
 #include "printf.h"
 
-void	ft_putstr_fd(char *s)
+int	ft_putstr_fd(char *s)
 {
 	int	i;
     int count = 1;

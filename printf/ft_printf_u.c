@@ -17,4 +17,5 @@ int ft_putnbr(int n)
         count++;
     }	
 	ft_printf_c("0123456789"[num % 10]);
+    return(count);
 }

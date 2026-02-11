@@ -1,26 +1,39 @@
-#include <unistd.h>
-#include <stdio.h> 
-#include <fcntl.h>
-int main()
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gatounsi <gatounsi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/11 10:05:00 by gatounsi          #+#    #+#             */
+/*   Updated: 2026/02/11 10:05:00 by gatounsi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "get_next_line.h"
+
+int	main(int argc, char **argv)
 {
-	int n; 
-	int fd;
-	char buff[1024];
-	fd = open("./tonzinc.txt",O_RDONLY);
-	n = read(fd, buff, 3);
+	int		fd;
+	char	*line;
+	char	*path;
+
+	path = "tonzinc.txt";
+	if (argc > 1)
+		path = argv[1];
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+	{
+		printf("Erreur d'ouverture: %s\n", path);
+		return (1);
+	}
+	line = get_next_line(fd);
+	while (line != NULL)
+	{
+		printf("%s", line);
+		free(line);
+		line = get_next_line(fd);
+	}
 	close(fd);
-	buff[n] = '\0';
-	printf("texte avant =%s\n", buff);
-	
-	
-	fd = open("./tonzinc.txt", O_WRONLY | O_APPEND, 0644);
-	write(fd, "ADAM EST POURRAVE ", 18);
-	
-	close (fd);
-	fd = open("./tonzinc.txt",O_RDONLY);
-	n = read(fd, buff, 21);
-	buff[n] = '\0';
-	printf("texte =%s\n", buff);
-	close (fd);
-	return(0);
+	return (0);
 }

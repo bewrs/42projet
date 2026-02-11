@@ -12,12 +12,12 @@
 
 #include "get_next_line.h"
 
-size_t ft_strlen(char *s) //pour connaitre la taille a malloc
+size_t ft_strlen(const char *s) //pour connaitre la taille a malloc
 {
 	int i = 0;
-	while(str[i])
+	while(s[i])
 		i++;
-	return(str);
+	return(i);
 }
 
 char	*ft_strdup(const char *src) // pour copier une string dans une autre
@@ -78,4 +78,19 @@ void *ft_memcpy(void *dst, void *src, size_t n)
 		i++;
 	}
 	return(dst);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	if(!s && c != '\0')
+		return(0);
+	while (*s)
+	{
+		if (*s == (unsigned char)c)
+			return ((char *)s);
+		s++;
+	}
+	if (*s == (unsigned char) c)
+		return ((char *)s);
+	return (NULL);
 }
