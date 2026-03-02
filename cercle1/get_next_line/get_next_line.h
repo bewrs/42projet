@@ -6,7 +6,7 @@
 /*   By: gatounsi <gatounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 14:40:36 by gatounsi          #+#    #+#             */
-/*   Updated: 2026/02/09 19:19:45 by gatounsi         ###   ########.fr       */
+/*   Updated: 2026/02/17 11:45:03 by gatounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 # endif
 
 # include <fcntl.h> // open
+# include <stdio.h>
 # include <stdlib.h> // free, malloc
 # include <unistd.h> // read, ssize_t
-# include <stdio.h>
 
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *src);

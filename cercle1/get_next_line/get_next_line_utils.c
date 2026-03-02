@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utiles.c                                           :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gatounsi <gatounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/09 19:06:32 by gatounsi          #+#    #+#             */
-/*   Updated: 2026/02/09 19:18:33 by gatounsi         ###   ########.fr       */
+/*   Created: 2026/02/12 15:46:01 by gatounsi          #+#    #+#             */
+/*   Updated: 2026/02/17 16:43:29 by gatounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t ft_strlen(const char *s) //pour connaitre la taille a malloc
+size_t	ft_strlen(const char *s)
 {
-	int i = 0;
-	while(s[i])
+	int	i;
+
+	i = 0;
+	while (s[i])
 		i++;
-	return(i);
+	return (i);
 }
 
-char	*ft_strdup(const char *src) // pour copier une string dans une autre
-{									//retourne la string copié deja alloué
+char	*ft_strdup(const char *src)
+{
 	char	*dest;
 	size_t	i;
 	size_t	len;
@@ -40,7 +42,7 @@ char	*ft_strdup(const char *src) // pour copier une string dans une autre
 	return (dest);
 }
 
-char	*ft_substr(char const *s, size_t start, size_t len) //sert à ubdate la variable static tmp, enlever la phrase pour proch appl de gnl
+char	*ft_substr(char const *s, size_t start, size_t len)
 {
 	size_t	i;
 	size_t	actual_len;
@@ -67,30 +69,32 @@ char	*ft_substr(char const *s, size_t start, size_t len) //sert à ubdate la var
 	return (sub);
 }
 
-void *ft_memcpy(void *dst, void *src, size_t n) 
+void	*ft_memcpy(void *dst, void *src, size_t n)
 {
-	size_t i = 0;
-	if(dst == NULL && src == NULL)
-		return(NULL);
-	while(i < n)
+	size_t	i;
+
+	i = 0;
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	while (i < n)
 	{
 		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
 		i++;
 	}
-	return(dst);
+	return (dst);
 }
 
 char	*ft_strchr(const char *s, int c)
 {
-	if(!s && c != '\0')
-		return(0);
+	if (!s && c != '\0')
+		return (0);
 	while (*s)
 	{
 		if (*s == (unsigned char)c)
 			return ((char *)s);
 		s++;
 	}
-	if (*s == (unsigned char) c)
+	if (*s == (unsigned char)c)
 		return ((char *)s);
 	return (NULL);
 }
