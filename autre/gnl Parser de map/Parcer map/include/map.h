@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gatounsi <gatounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/11 10:05:00 by gatounsi          #+#    #+#             */
-/*   Updated: 2026/02/11 10:05:00 by gatounsi         ###   ########.fr       */
+/*   Created: 2026/03/05 16:09:11 by gatounsi          #+#    #+#             */
+/*   Updated: 2026/03/05 18:16:46 by gatounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#ifndef GNLBOOSTE
+#define GNLBOOSTE
 
-int	main(int argc, char **argv)
+
+#include <stdio.h>
+
+
+typedef struct s_map
 {
-	int		fd;
-	char	*line;
-	char	*path;
+    char **memmap;
+    int largeur;
+    int hauteur;
+    
+    int positionJ[2];
+    int positionS[2];
+    int positionE[2];
 
-	path = "tonzinc.txt";
-	if (argc > 1)
-		path = argv[1];
-	fd = open(path, O_RDONLY);
-	if (fd < 0)
-	{
-		printf("Erreur d'ouverture: %s\n", path);
-		return (1);
-	}
-	line = get_next_line(fd);
-	while (line != NULL)
-	{
-		printf("%s", line);
-		free(line);
-		line = get_next_line(fd);
-	}
-	close(fd);
-	return (0);
-}
+    int compt_J;
+    int compt_S;
+    int compt_E;
+} t_map;
+
+enum map{
+    CASE,
+    MUR,
+    ENTRE,
+    SORTIE,
+    JOUEUR
+};
+
+#endif

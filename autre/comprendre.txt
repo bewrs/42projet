@@ -1,0 +1,50 @@
+🎯 Ce que ton programme doit faire (en langage humain)
+
+Quand tu donnes ce fichier à ton programme, il doit :
+
+Lire le fichier ligne par ligne
+
+Stocker la carte en mémoire
+
+Vérifier qu’elle est valide
+
+Dire si tout est OK ou non
+
+🛠️ Ce que veut dire “valide”
+
+Une map est valide si :
+
+le fichier n’est pas vide
+
+toutes les lignes ont la même longueur
+
+il n’y a que des caractères autorisés
+
+il y a exactement 1 S
+
+il y a exactement 1 E
+
+la map est bien fermée par des murs (option mais très logique)
+
+(bonus) la sortie est atteignable depuis le départ
+🧱 Ce que tu dois construire (mentalement)
+
+À la fin du programme, tu dois avoir en mémoire :
+
+une grille (char **)
+
+sa largeur
+
+sa hauteur
+
+la position du S
+
+la position du E
+
+👉 Une fois que tu as ça, le projet est réussi.
+
+
+
+
+
+11111
